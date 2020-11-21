@@ -1,6 +1,9 @@
 {
   "presets": ["@babel/preset-env"],
-  "plugins": ["@babel/plugin-transform-runtime",
-    "module:babel-strip-test-code"
-  ]
+  "plugins": ["@babel/plugin-transform-runtime"],
+  "env": {
+    "production": {
+      "plugins": ["module:babel-strip-test-code"]
+    }
+  }
 }
