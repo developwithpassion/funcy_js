@@ -1,0 +1,47 @@
+{
+  "author": "Develop With Passion",
+  "name": "@developwithpassion/funcy_js",
+  "main": "./dist/index.js",
+  "description": "Functional utilities",
+  "version": "0.5.1",
+  "repository": {
+    "url": ""
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "@developwithpassion/curry_js": "git+https://github.com/developwithpassion/curry_js.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/register": "^7.7.0",
+    "babel-strip-test-code": "^1.1.12",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "eslint-plugin-mocha": "^6.2.1",
+    "husky": "^3.0.9",
+    "jest": "^26.6.3",
+    "lint-staged": "^9.4.3",
+    "parcel": "^1.12.4",
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "build": "parcel build ./lib/index.js",
+    "pretty": "prettier --config-precedence prefer-file --write \"lib/**/*.js\"",
+    "lint": "eslint lib/**/*.js",
+    "test": "jest"
+  },
+  "lint-staged": {
+    "lib/**/*.js": [
+      "yarn pretty",
+      "yarn lint",
+      "yarn build",
+      "git add"
+    ]
+  }
+}
